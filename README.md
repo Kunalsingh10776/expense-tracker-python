@@ -1,36 +1,64 @@
-# expense-tracker-python
-This is a solid Python script! It’s clean, functional, and uses openpyxl effectively to bridge the gap between terminal input and Excel reporting.
+💸 Expense Tracker – Excel Based
+A command-line personal expense tracker built with Python that stores all data in an Excel workbook (expenses.xlsx). Add expenses, view summaries, and generate bar charts — all from the terminal.
 
-To make this "GitHub ready," your README should explain what it is, how to set it up (especially the library dependency), and how to use it.
+📋 Features
+#FeatureDescription1Add ExpenseRecord date, category, item, and amount2View ExpensesList all saved expenses3Total ExpenseShow the sum of all expenses4Category SummaryGroup and total expenses by category5Monthly SummaryGroup and total expenses by month6Excel ChartGenerate a bar chart inside the Excel file
 
-📊 Personal Expense Tracker (Python & Excel)
-A lightweight terminal-based application that tracks your daily expenses and automatically generates structured reports and bar charts in an Excel workbook.
+🛠️ Requirements
 
-✨ Features
-Data Persistence: Saves all entries to expenses.xlsx automatically.
+Python 3.x
+openpyxl
 
-Categorization: Group expenses by category (Food, Rent, Travel, etc.).
-
-Summary Reports: View total spending and monthly breakdowns within the terminal.
-
-Excel Visualization: Generates a dedicated "Charts" sheet in Excel with a Bar Chart of your spending.
-
-Smart Sheets: Automatically creates "Expenses", "Summary", and "Charts" sheets if they don't exist.
+Install the dependency with:
+bashpip install openpyxl
 
 🚀 Getting Started
-Prerequisites
-Python 3.x
+bashpython main.py
+On the first run, an expenses.xlsx file is automatically created in the same directory. On subsequent runs, the existing file is loaded and updated.
 
-openpyxl library
+🖥️ Usage
+After running the script, you'll see an interactive menu:
+===== EXPENSE TRACKER =====
+1. Add Expense
+2. View Expenses
+3. Total Expense
+4. Category Summary
+5. Monthly Summary
+6. Create Excel Chart
+7. Exit
+Enter the number for the option you want and follow the prompts.
+Adding an Expense
+Enter date (DD/MM/YYYY): 28/03/2026
+Category: Food
+Description: Lunch at canteen
+Amount: 85
+✅ Expense added & saved to Excel
 
-🛠️ How it Works
-The script interacts with the Excel file in three main ways:
+📁 Excel File Structure
+The generated expenses.xlsx contains three sheets:
+SheetContentsExpensesAll raw expense records (Date, Month, Category, Item, Amount)SummaryCategory-wise totals (updated when option 4 or 6 is selected)ChartsBar chart visualizing spending by category
 
-Expenses Sheet: Acts as a raw database for every transaction.
+📂 Project Structure
+expense-tracker/
+│
+├── main.py          # Main application file
+├── expenses.xlsx    # Auto-generated data file (created on first run)
+└── README.md        # Project documentation
 
-Summary Sheet: Uses Python dictionaries to aggregate totals per category.
+⚠️ Notes
 
-Charts Sheet: Uses the openpyxl.chart module to draw a visual representation of the summary data.
+Date must be entered in DD/MM/YYYY format.
+The expenses.xlsx file is created in the same directory as main.py.
+The chart is embedded inside the Excel file under the Charts sheet — open the file in Excel or LibreOffice Calc to view it.
+The Summary sheet is automatically refreshed whenever option 4 (Category Summary) or 6 (Create Excel Chart) is selected.
 
-📝 License
-This project is open-source and available under the MIT License.
+
+📌 Example Output
+📋 ALL EXPENSES
+1. 28/03/2026 | Food | Lunch at canteen | ₹85.0
+2. 28/03/2026 | Transport | Bus fare | ₹20.0
+
+💰 TOTAL EXPENSE: ₹105.0
+
+📅 MONTHLY SUMMARY
+03-2026: ₹105.0
